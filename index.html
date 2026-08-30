@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>TechyGeeksHome — Downloads</title>
+<style>
+  :root{
+    --ground:#0A0D16;
+    --surface:#111725;
+    --line:#242D42;
+    --txt:#FFFFFF;
+    --txt-2:#BEC4D2;
+    --txt-3:#7C8699;
+    --accent:#6BA8F0;
+    --bar-a:#7BA9F6;
+    --bar-b:#2F6DED;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--ground); color:var(--txt);
+    font:16px/1.55 "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:940px; margin:0 auto; padding:48px 20px 72px}
+
+  header{display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:10px}
+  h1{margin:0; font-size:20px; font-weight:600; letter-spacing:-.01em}
+  h1 span{color:var(--txt-3); font-weight:400}
+  .stamp{color:var(--txt-3); font-size:13px}
+
+  .headline{
+    margin:34px 0 6px;
+    font-size:clamp(52px, 12vw, 104px); line-height:1; font-weight:700;
+    letter-spacing:-.03em;
+    font-variant-numeric:tabular-nums;
+    background:linear-gradient(180deg,var(--bar-a),var(--bar-b));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .headline-sub{color:var(--txt-2); font-size:15px; margin:0 0 40px}
+
+  table{width:100%; border-collapse:collapse}
+  th{
+    text-align:left; font-size:11.5px; font-weight:600; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--txt-3);
+    padding:0 12px 10px 0; border-bottom:1px solid var(--line); white-space:nowrap;
+  }
+  th.num, td.num{text-align:right; padding-right:0}
+  td{padding:14px 12px 14px 0; border-bottom:1px solid var(--line); vertical-align:middle}
+  tbody tr:last-child td{border-bottom:0}
+  .app{font-weight:600}
+  .app a{color:var(--txt); text-decoration:none}
+  .app a:hover{color:var(--accent); text-decoration:underline}
+  .desc{display:block; font-weight:400; font-size:13px; color:var(--txt-3); margin-top:3px; max-width:52ch}
+  .tag{color:var(--txt-3); font-size:13px; font-variant-numeric:tabular-nums; white-space:nowrap}
+  .num{font-variant-numeric:tabular-nums; font-size:19px; font-weight:600; white-space:nowrap}
+  .bar{height:5px; border-radius:3px; background:linear-gradient(90deg,var(--bar-a),var(--bar-b)); margin-top:8px; min-width:2px}
+  .barcell{width:34%; min-width:110px}
+
+  footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); color:var(--txt-3); font-size:13px}
+  footer a{color:var(--txt-3)}
+  .msg{color:var(--txt-3); padding:28px 0}
+
+  @media (max-width:620px){
+    .barcell{display:none}
+    .desc{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>TechyGeeksHome <span>&middot; downloads</span></h1>
+    <span class="stamp" id="stamp"></span>
+  </header>
+
+  <div class="headline" id="total">&mdash;</div>
+  <p class="headline-sub" id="totalSub">Release downloads from GitHub, all applications, all versions.</p>
+
+  <div id="body"><p class="msg">Loading&hellip;</p></div>
+
+  <footer>
+    Counted from the GitHub releases API once a day. Checksum files are excluded.
+    <a href="data/downloads.json">Raw data</a>.
+  </footer>
+
+</div>
+
+<script>
+const fmt = n => n.toLocaleString('en-GB');
+
+function render(d) {
+  const total = document.getElementById('total');
+  const sub = document.getElementById('totalSub');
+  const stamp = document.getElementById('stamp');
+  const body = document.getElementById('body');
+
+  if (!d.generated || !d.apps.length) {
+    body.innerHTML = '<p class="msg">No data collected yet. Run the <strong>collect</strong> workflow from the Actions tab.</p>';
+    return;
+  }
+
+  total.textContent = fmt(d.total);
+  sub.textContent = 'Release downloads from GitHub, across ' + d.apps.length +
+    ' application' + (d.apps.length === 1 ? '' : 's') + ' and ' +
+    fmt(d.apps.reduce((a, x) => a + x.releases, 0)) + ' releases.';
+
+  const when = new Date(d.generated);
+  stamp.textContent = 'updated ' + when.toLocaleDateString('en-GB',
+    { day: 'numeric', month: 'short', year: 'numeric' }) + ', ' +
+    when.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+
+  const top = d.apps[0].total || 1;
+  const rows = d.apps.map(a => `
+    <tr>
+      <td class="app">
+        <a href="${a.url}">${a.name}</a>
+        ${a.description ? `<span class="desc">${a.description}</span>` : ''}
+      </td>
+      <td class="tag">${a.latest ? a.latest : ''}</td>
+      <td class="barcell"><div class="bar" style="width:${Math.max(2, (a.total / top) * 100)}%"></div></td>
+      <td class="num">${fmt(a.total)}</td>
+    </tr>`).join('');
+
+  body.innerHTML = `
+    <table>
+      <thead>
+        <tr>
+          <th>Application</th>
+          <th>Latest</th>
+          <th class="barcell"></th>
+          <th class="num">Downloads</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+fetch('data/downloads.json', { cache: 'no-store' })
+  .then(r => r.json())
+  .then(render)
+  .catch(() => {
+    document.getElementById('body').innerHTML =
+      '<p class="msg">Could not read the data file.</p>';
+  });
+</script>
+</body>
+</html>
