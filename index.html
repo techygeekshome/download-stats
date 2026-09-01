@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>TechyGeeksHome — Downloads</title>
+<title>TechyGeeksHome downloads</title>
 <style>
   :root{
     --ground:#0A0D16;
@@ -38,7 +38,19 @@
     background:linear-gradient(180deg,var(--bar-a),var(--bar-b));
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
-  .headline-sub{color:var(--txt-2); font-size:15px; margin:0 0 40px}
+  .headline-sub{color:var(--txt-2); font-size:15px; margin:0 0 18px}
+
+  .sources{display:flex; flex-wrap:wrap; gap:10px; margin:0 0 40px; padding:0; list-style:none}
+  .sources li{
+    display:flex; align-items:baseline; gap:8px;
+    background:var(--surface); border:1px solid var(--line); border-radius:6px;
+    padding:8px 13px; font-size:13px; color:var(--txt-3);
+  }
+  .sources b{font-size:15px; font-weight:600; color:var(--txt); font-variant-numeric:tabular-nums}
+  .warn{color:#E8B45A; font-size:13px; margin:-28px 0 34px}
+
+  .split{display:block; font-weight:400; font-size:12px; color:var(--txt-3); margin-top:4px;
+         font-variant-numeric:tabular-nums}
 
   table{width:100%; border-collapse:collapse}
   th{
@@ -76,13 +88,17 @@
     <span class="stamp" id="stamp"></span>
   </header>
 
-  <div class="headline" id="total">&mdash;</div>
-  <p class="headline-sub" id="totalSub">Release downloads from GitHub, all applications, all versions.</p>
+  <div class="headline" id="total">&middot;&middot;&middot;</div>
+  <p class="headline-sub" id="totalSub">All applications, all versions, every place they are published.</p>
+  <ul class="sources" id="sources"></ul>
+  <p class="warn" id="warn" hidden></p>
 
   <div id="body"><p class="msg">Loading&hellip;</p></div>
 
   <footer>
-    Counted from the GitHub releases API once a day. Checksum files are excluded.
+    Counted once a day from the GitHub releases API, the SourceForge statistics feed and the
+    Chocolatey package feed. Checksum files are excluded. If a source cannot be reached, its last
+    known figure is carried forward and said so above.
     <a href="data/downloads.json">Raw data</a>.
   </footer>
 
@@ -103,9 +119,24 @@ function render(d) {
   }
 
   total.textContent = fmt(d.total);
-  sub.textContent = 'Release downloads from GitHub, across ' + d.apps.length +
+  sub.textContent = 'Across ' + d.apps.length +
     ' application' + (d.apps.length === 1 ? '' : 's') + ' and ' +
-    fmt(d.apps.reduce((a, x) => a + x.releases, 0)) + ' releases.';
+    fmt(d.apps.reduce((a, x) => a + x.releases, 0)) + ' GitHub releases.';
+
+  const src = d.sources || { github: d.total, sourceforge: 0, chocolatey: 0 };
+  const label = { github: 'GitHub releases', sourceforge: 'SourceForge', chocolatey: 'Chocolatey' };
+  document.getElementById('sources').innerHTML = Object.keys(label)
+    .map(k => `<li><b>${fmt(src[k] || 0)}</b> ${label[k]}</li>`).join('');
+
+  const out = d.unavailable || [];
+  const warn = document.getElementById('warn');
+  if (out.length) {
+    warn.hidden = false;
+    warn.textContent = 'Could not reach ' + out.map(k => label[k]).join(' or ') +
+      ' on this run. The figure shown for it is the last one that was collected.';
+  } else {
+    warn.hidden = true;
+  }
 
   const when = new Date(d.generated);
   stamp.textContent = 'updated ' + when.toLocaleDateString('en-GB',
@@ -113,11 +144,20 @@ function render(d) {
     when.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
 
   const top = d.apps[0].total || 1;
+  const split = a => {
+    const parts = [];
+    if (a.github) parts.push(fmt(a.github) + ' GitHub');
+    if (a.sourceforge) parts.push(fmt(a.sourceforge) + ' SourceForge');
+    if (a.chocolatey) parts.push(fmt(a.chocolatey) + ' Chocolatey');
+    return parts.length > 1 ? parts.join('  ·  ') : '';
+  };
+
   const rows = d.apps.map(a => `
     <tr>
       <td class="app">
         <a href="${a.url}">${a.name}</a>
         ${a.description ? `<span class="desc">${a.description}</span>` : ''}
+        ${split(a) ? `<span class="split">${split(a)}</span>` : ''}
       </td>
       <td class="tag">${a.latest ? a.latest : ''}</td>
       <td class="barcell"><div class="bar" style="width:${Math.max(2, (a.total / top) * 100)}%"></div></td>
