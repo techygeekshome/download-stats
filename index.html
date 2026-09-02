@@ -123,8 +123,8 @@ function render(d) {
     ' application' + (d.apps.length === 1 ? '' : 's') + ' and ' +
     fmt(d.apps.reduce((a, x) => a + x.releases, 0)) + ' GitHub releases.';
 
-  const src = d.sources || { github: d.total, sourceforge: 0, chocolatey: 0 };
-  const label = { github: 'GitHub releases', sourceforge: 'SourceForge', chocolatey: 'Chocolatey' };
+  const src = d.sources || { github: d.total, sourceforge: 0, chocolatey: 0, majorgeeks: 0, softpedia: 0 };
+  const label = { github: 'GitHub releases', sourceforge: 'SourceForge', chocolatey: 'Chocolatey', majorgeeks: 'MajorGeeks', softpedia: 'Softpedia' };
   document.getElementById('sources').innerHTML = Object.keys(label)
     .map(k => `<li><b>${fmt(src[k] || 0)}</b> ${label[k]}</li>`).join('');
 
@@ -149,6 +149,8 @@ function render(d) {
     if (a.github) parts.push(fmt(a.github) + ' GitHub');
     if (a.sourceforge) parts.push(fmt(a.sourceforge) + ' SourceForge');
     if (a.chocolatey) parts.push(fmt(a.chocolatey) + ' Chocolatey');
+    if (a.majorgeeks) parts.push(fmt(a.majorgeeks) + ' MajorGeeks');
+    if (a.softpedia) parts.push(fmt(a.softpedia) + ' Softpedia');
     return parts.length > 1 ? parts.join('  ·  ') : '';
   };
 
