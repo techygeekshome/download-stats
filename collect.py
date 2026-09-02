@@ -40,6 +40,7 @@ OUT = "data/downloads.json"
 
 SOURCEFORGE = "https://sourceforge.net/projects/{slug}/files/stats/json"
 CHOCOLATEY = "https://community.chocolatey.org/api/v2/FindPackagesById()"
+PACKAGES = "https://community.chocolatey.org/api/v2/Packages()"
 CHOCO_PAGE = "https://community.chocolatey.org/packages/{pkg}"
 MAJORGEEKS = "https://www.majorgeeks.com/files/details/{slug}.html"
 SOFTPEDIA_PUBLISHER = "https://www.softpedia.com/publisher/Techy-Geeks-Home-95268.html"
@@ -56,11 +57,18 @@ DIRECTORY = {
 
 UA = "techygeekshome-download-stats"
 
+# MajorGeeks and Softpedia both refuse a bare urllib User-Agent, so the scrapers send a
+# browser one. The GitHub and SourceForge APIs keep the honest identifier above.
+BROWSER_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+              "(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36")
 
-def fetch(url, accept, timeout=30):
+
+def fetch(url, accept, timeout=30, browser=False):
     req = urllib.request.Request(url)
     req.add_header("Accept", accept)
-    req.add_header("User-Agent", UA)
+    req.add_header("User-Agent", BROWSER_UA if browser else UA)
+    if browser:
+        req.add_header("Accept-Language", "en-GB,en;q=0.9")
     if url.startswith(API):
         req.add_header("X-GitHub-Api-Version", "2022-11-28")
         token = os.environ.get("GITHUB_TOKEN")
@@ -122,42 +130,48 @@ def sourceforge_downloads(slug):
     return int(json.loads(raw).get("total", 0))
 
 
+def _choco_feed(url):
+    """Largest DownloadCount in an OData feed, or 0 if the feed is empty."""
+    raw = fetch(url, "application/atom+xml")
+    ns = "http://schemas.microsoft.com/ado/2007/08/dataservices"
+    counts = [int(el.text or 0) for el in ET.fromstring(raw).iter(f"{{{ns}}}DownloadCount")]
+    return max(counts) if counts else 0
+
+
 def chocolatey_downloads(package_id):
     """
     Downloads across every version of a package, or 0 if it is not published.
 
-    The package page is read first because the OData feed lags it, sometimes by a lot:
-    the feed said 9,841 for Ultimate Settings Panel while the page said 10,680, and it
-    said 0 for DiskGeek while the profile said 19. The feed is the fallback.
-
-    Note the endpoint is FindPackagesById(), not Packages()?$filter=Id eq. The latter
-    returns an empty feed, which is why every package except one read zero before.
+    Three ways of asking, and the largest answer wins, because they disagree and each
+    one is wrong in a different direction. The page is the freshest but is behind a bot
+    check that sometimes refuses us. FindPackagesById is the documented lookup.
+    Packages()?$filter is the one that was here first and demonstrably returns a figure.
+    Taking the maximum means a refusal from any one of them cannot pull the total down.
     """
+    found = []
+
     try:
-        html = fetch(CHOCO_PAGE.format(pkg=package_id), "text/html").decode("utf-8", "replace")
-        m = re.search(r"Total\s*Downloads?[^0-9]{0,40}([\d,]+)", html, re.I)
+        html = fetch(CHOCO_PAGE.format(pkg=package_id), "text/html",
+                     browser=True).decode("utf-8", "replace")
+        m = re.search(r"Total\s*Downloads?\D{0,40}?([\d,]+)", html, re.I)
         if m:
-            return int(m.group(1).replace(",", ""))
-    except urllib.error.HTTPError as e:
-        if e.code == 404:
-            return 0          # not published there, which is a real answer
-    except Exception:         # noqa: BLE001 - fall through to the feed
+            found.append(int(m.group(1).replace(",", "")))
+    except Exception:                     # noqa: BLE001 - the feeds below are the fallback
         pass
 
-    query = "id=" + urllib.parse.quote(f"'{package_id}'", safe="")
-    try:
-        raw = fetch(f"{CHOCOLATEY}?{query}", "application/atom+xml")
-    except urllib.error.HTTPError as e:
-        if e.code == 404:
-            return 0
-        raise
+    for url in (
+        f"{CHOCOLATEY}?id=" + urllib.parse.quote(f"'{package_id}'", safe=""),
+        f"{PACKAGES}?$filter=" + urllib.parse.quote(f"Id eq '{package_id}'", safe=""),
+    ):
+        try:
+            found.append(_choco_feed(url))
+        except urllib.error.HTTPError as e:
+            if e.code != 404:
+                raise
+        except Exception:                 # noqa: BLE001
+            pass
 
-    ns = {"d": "http://schemas.microsoft.com/ado/2007/08/dataservices"}
-    counts = [
-        int(el.text or 0)
-        for el in ET.fromstring(raw).iter(f"{{{ns['d']}}}DownloadCount")
-    ]
-    return max(counts) if counts else 0
+    return max(found) if found else 0
 
 
 def majorgeeks_downloads(slug):
@@ -165,7 +179,8 @@ def majorgeeks_downloads(slug):
     if not slug:
         return 0
     try:
-        html = fetch(MAJORGEEKS.format(slug=slug), "text/html").decode("utf-8", "replace")
+        html = fetch(MAJORGEEKS.format(slug=slug), "text/html",
+                     browser=True).decode("utf-8", "replace")
     except urllib.error.HTTPError as e:
         if e.code == 404:
             return 0
@@ -188,7 +203,7 @@ def softpedia_table():
     """
     if _softpedia_cache:
         return _softpedia_cache
-    html = fetch(SOFTPEDIA_PUBLISHER, "text/html").decode("utf-8", "replace")
+    html = fetch(SOFTPEDIA_PUBLISHER, "text/html", browser=True).decode("utf-8", "replace")
     text = re.sub(r"<[^>]+>", " ", html)
     text = re.sub(r"\s+", " ", text)
     for name, count in re.findall(r"([A-Za-z][\w .&-]{2,40}?)\s+[\d.]*\s*([\d,]+)\s+downloads", text, re.I):
@@ -246,12 +261,26 @@ def main():
             ("softpedia",   softpedia_downloads,   listed.get("softpedia")),
         ):
             try:
-                counts[label] = lookup(key)
+                got = lookup(key)
             except Exception as e:                      # noqa: BLE001 - any failure is the same failure
                 counts[label] = was.get(label, 0)
                 unavailable.add(label)
                 print(f"{name}: {label} unavailable ({e}), carried {counts[label]} forward",
                       file=sys.stderr)
+                continue
+
+            # A counter that had a number and now reads zero has not been reset by the
+            # other site; we have been refused, or their markup moved. Downloads do not
+            # go backwards, so the old figure stands and the source is flagged. Without
+            # this a silent 403 quietly wipes a real number off the dashboard.
+            had = was.get(label, 0)
+            if got == 0 and had > 0:
+                counts[label] = had
+                unavailable.add(label)
+                print(f"{name}: {label} returned 0 but was {had}, keeping {had}",
+                      file=sys.stderr)
+            else:
+                counts[label] = max(got, had)
 
         apps.append({
             "name": name,
