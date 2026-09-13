@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-12T10:42:07Z",
-  "total": 16870,
+  "generated": "2026-09-13T11:47:20Z",
+  "total": 16959,
   "sources": {
-    "github": 6707,
-    "sourceforge": 322,
+    "github": 6785,
+    "sourceforge": 333,
     "chocolatey": 9841,
     "majorgeeks": 0,
     "softpedia": 0
@@ -17,9 +17,9 @@
       "name": "Ultimate-Settings-Panel",
       "url": "https://github.com/techygeekshome/Ultimate-Settings-Panel",
       "description": "250+ Windows settings, tools, diagnostics & commands in one fast, searchable panel. Native Windows app + web edition. Free.",
-      "total": 10775,
-      "github": 840,
-      "sourceforge": 94,
+      "total": 10789,
+      "github": 851,
+      "sourceforge": 97,
       "chocolatey": 9841,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -28,11 +28,11 @@
       "assets": [
         {
           "name": "Ultimate-Settings-Panel.zip",
-          "count": 485
+          "count": 493
         },
         {
           "name": "Ultimate.Settings.Panel.exe",
-          "count": 355
+          "count": 358
         }
       ]
     },
@@ -40,9 +40,9 @@
       "name": "PDFGeek",
       "url": "https://github.com/techygeekshome/PDFGeek",
       "description": "Free, offline PDF toolkit for Windows. Merge, split, extract, rotate, watermark and password-protect PDFs on your own machine \u2014 no file limits, no uploads, no subscription.",
-      "total": 2679,
-      "github": 2628,
-      "sourceforge": 51,
+      "total": 2690,
+      "github": 2638,
+      "sourceforge": 52,
       "chocolatey": 0,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -51,11 +51,11 @@
       "assets": [
         {
           "name": "PDFGeek.exe",
-          "count": 1434
+          "count": 1440
         },
         {
           "name": "PDFGeekSetup.exe",
-          "count": 1194
+          "count": 1198
         }
       ]
     },
@@ -63,8 +63,8 @@
       "name": "CleanGeek",
       "url": "https://github.com/techygeekshome/CleanGeek",
       "description": "Free, open source disk cleaner for Windows. Recovers real space from caches, temp files and update leftovers - and has no registry cleaner, deliberately.",
-      "total": 940,
-      "github": 918,
+      "total": 951,
+      "github": 929,
       "sourceforge": 22,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -74,11 +74,11 @@
       "assets": [
         {
           "name": "CleanGeekSetup.exe",
-          "count": 577
+          "count": 584
         },
         {
           "name": "CleanGeek-portable.exe",
-          "count": 341
+          "count": 345
         }
       ]
     },
@@ -86,9 +86,9 @@
       "name": "DiskGeek",
       "url": "https://github.com/techygeekshome/DiskGeek",
       "description": "Free disk space analyser for Windows. Shows what is actually filling a drive as a sortable tree, finds the biggest files and duplicates, and opens any folder straight in Explorer.",
-      "total": 757,
-      "github": 686,
-      "sourceforge": 71,
+      "total": 784,
+      "github": 707,
+      "sourceforge": 77,
       "chocolatey": 0,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -97,7 +97,7 @@
       "assets": [
         {
           "name": "DiskGeekSetup.exe",
-          "count": 686
+          "count": 707
         }
       ]
     },
@@ -105,8 +105,8 @@
       "name": "AppGeek",
       "url": "https://github.com/techygeekshome/AppGeek",
       "description": "Free, open source installer and updater for Windows apps. Scan what's installed, update everything in one run, and install from a curated catalogue \u2014 built on winget.",
-      "total": 503,
-      "github": 483,
+      "total": 512,
+      "github": 492,
       "sourceforge": 20,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -116,15 +116,15 @@
       "assets": [
         {
           "name": "AppGeekSetup.exe",
-          "count": 283
+          "count": 287
         },
         {
           "name": "AppGeek.exe",
-          "count": 154
+          "count": 158
         },
         {
           "name": "AppGeek-light.exe",
-          "count": 46
+          "count": 47
         }
       ]
     },
@@ -132,8 +132,8 @@
       "name": "TranscribeGeek",
       "url": "https://github.com/techygeekshome/TranscribeGeek",
       "description": "Turns recordings into text, on your own machine.",
-      "total": 309,
-      "github": 301,
+      "total": 313,
+      "github": 305,
       "sourceforge": 8,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -143,7 +143,7 @@
       "assets": [
         {
           "name": "TranscribeGeekSetup.exe",
-          "count": 231
+          "count": 235
         },
         {
           "name": "TranscribeGeek-portable.exe",
@@ -155,8 +155,8 @@
       "name": "DriverGeek",
       "url": "https://github.com/techygeekshome/DriverGeek",
       "description": "Free, open source driver inventory for Windows. See every driver you have, and the updates Windows Update keeps hidden under optional updates.",
-      "total": 291,
-      "github": 275,
+      "total": 295,
+      "github": 279,
       "sourceforge": 16,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -166,7 +166,7 @@
       "assets": [
         {
           "name": "DriverGeekSetup.exe",
-          "count": 218
+          "count": 222
         },
         {
           "name": "DriverGeek-portable.exe",
@@ -178,8 +178,8 @@
       "name": "CutGeek",
       "url": "https://github.com/techygeekshome/CutGeek",
       "description": "Removes photo backgrounds at full size.",
-      "total": 157,
-      "github": 155,
+      "total": 158,
+      "github": 156,
       "sourceforge": 2,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -189,7 +189,7 @@
       "assets": [
         {
           "name": "CutGeekSetup.exe",
-          "count": 140
+          "count": 141
         },
         {
           "name": "CutGeek-portable.exe",
@@ -201,9 +201,9 @@
       "name": "LingoGeek",
       "url": "https://github.com/techygeekshome/LingoGeek",
       "description": "Free offline document translator for Windows. Word, PDF, subtitles and text, translated on your own machine with no account and no character limit.",
-      "total": 116,
-      "github": 102,
-      "sourceforge": 14,
+      "total": 120,
+      "github": 105,
+      "sourceforge": 15,
       "chocolatey": 0,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -212,7 +212,7 @@
       "assets": [
         {
           "name": "LingoGeekSetup.exe",
-          "count": 102
+          "count": 105
         }
       ]
     },
@@ -220,8 +220,8 @@
       "name": "SoundGeek",
       "url": "https://github.com/techygeekshome/SoundGeek",
       "description": "Free, offline audio cleanup for Windows. Removes background noise and mains hum and evens out the levels, on your own machine, with nothing uploaded.",
-      "total": 107,
-      "github": 99,
+      "total": 108,
+      "github": 100,
       "sourceforge": 8,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -235,7 +235,7 @@
         },
         {
           "name": "SoundGeek-portable.exe",
-          "count": 6
+          "count": 7
         }
       ]
     },
@@ -243,8 +243,8 @@
       "name": "AuthGeek",
       "url": "https://github.com/techygeekshome/AuthGeek",
       "description": "Free, offline two-factor authenticator for Windows. Your TOTP and HOTP codes in one encrypted file on your own machine, with backup and restore built in. No account, no server, nothing uploaded.",
-      "total": 105,
-      "github": 98,
+      "total": 106,
+      "github": 99,
       "sourceforge": 7,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -254,7 +254,7 @@
       "assets": [
         {
           "name": "AuthGeekSetup.exe",
-          "count": 93
+          "count": 94
         },
         {
           "name": "AuthGeek-portable.exe",
@@ -285,8 +285,8 @@
       "name": "ReelGeek",
       "url": "https://github.com/techygeekshome/ReelGeek",
       "description": "Free, open source reel maker for Windows. Turns a folder of photos into a vertical edit cut to a beat grid, and never uploads a thing.",
-      "total": 46,
-      "github": 41,
+      "total": 48,
+      "github": 43,
       "sourceforge": 5,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -296,7 +296,7 @@
       "assets": [
         {
           "name": "ReelGeekSetup.exe",
-          "count": 41
+          "count": 43
         }
       ]
     },
