@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-18T11:10:12Z",
-  "total": 18082,
+  "generated": "2026-09-19T10:54:47Z",
+  "total": 18178,
   "sources": {
-    "github": 7848,
-    "sourceforge": 393,
+    "github": 7941,
+    "sourceforge": 396,
     "chocolatey": 9841,
     "majorgeeks": 0,
     "softpedia": 0
@@ -17,8 +17,8 @@
       "name": "Ultimate-Settings-Panel",
       "url": "https://github.com/techygeekshome/Ultimate-Settings-Panel",
       "description": "250+ Windows settings, tools, diagnostics & commands in one fast, searchable panel. Native Windows app + web edition. Free.",
-      "total": 10834,
-      "github": 891,
+      "total": 10836,
+      "github": 893,
       "sourceforge": 102,
       "chocolatey": 9841,
       "majorgeeks": 0,
@@ -28,11 +28,11 @@
       "assets": [
         {
           "name": "Ultimate-Settings-Panel.zip",
-          "count": 515
+          "count": 516
         },
         {
           "name": "Ultimate.Settings.Panel.exe",
-          "count": 376
+          "count": 377
         }
       ]
     },
@@ -40,8 +40,8 @@
       "name": "PDFGeek",
       "url": "https://github.com/techygeekshome/PDFGeek",
       "description": "Free, offline PDF toolkit for Windows. Merge, split, extract, rotate, watermark and password-protect PDFs on your own machine \u2014 no file limits, no uploads, no subscription.",
-      "total": 2777,
-      "github": 2715,
+      "total": 2785,
+      "github": 2723,
       "sourceforge": 62,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -51,11 +51,11 @@
       "assets": [
         {
           "name": "PDFGeek.exe",
-          "count": 1468
+          "count": 1471
         },
         {
           "name": "PDFGeekSetup.exe",
-          "count": 1247
+          "count": 1252
         }
       ]
     },
@@ -63,8 +63,8 @@
       "name": "CleanGeek",
       "url": "https://github.com/techygeekshome/CleanGeek",
       "description": "Free, open source disk cleaner for Windows. Recovers real space from caches, temp files and update leftovers - and has no registry cleaner, deliberately.",
-      "total": 1018,
-      "github": 995,
+      "total": 1035,
+      "github": 1012,
       "sourceforge": 23,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -74,11 +74,11 @@
       "assets": [
         {
           "name": "CleanGeekSetup.exe",
-          "count": 639
+          "count": 654
         },
         {
           "name": "CleanGeek-portable.exe",
-          "count": 356
+          "count": 358
         }
       ]
     },
@@ -86,9 +86,9 @@
       "name": "DriverGeek",
       "url": "https://github.com/techygeekshome/DriverGeek",
       "description": "Free, open source driver inventory for Windows. See every driver you have, and the updates Windows Update keeps hidden under optional updates.",
-      "total": 898,
-      "github": 875,
-      "sourceforge": 23,
+      "total": 933,
+      "github": 909,
+      "sourceforge": 24,
       "chocolatey": 0,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -97,11 +97,11 @@
       "assets": [
         {
           "name": "DriverGeekSetup.exe",
-          "count": 494
+          "count": 515
         },
         {
           "name": "DriverGeek-portable.exe",
-          "count": 381
+          "count": 394
         }
       ]
     },
@@ -109,8 +109,8 @@
       "name": "DiskGeek",
       "url": "https://github.com/techygeekshome/DiskGeek",
       "description": "Free disk space analyser for Windows. Shows what is actually filling a drive as a sortable tree, finds the biggest files and duplicates, and opens any folder straight in Explorer.",
-      "total": 884,
-      "github": 789,
+      "total": 891,
+      "github": 796,
       "sourceforge": 95,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -120,7 +120,7 @@
       "assets": [
         {
           "name": "DiskGeekSetup.exe",
-          "count": 789
+          "count": 796
         }
       ]
     },
@@ -128,8 +128,8 @@
       "name": "AppGeek",
       "url": "https://github.com/techygeekshome/AppGeek",
       "description": "Free, open source installer and updater for Windows apps. Scan what's installed, update everything in one run, and install from a curated catalogue \u2014 built on winget.",
-      "total": 569,
-      "github": 546,
+      "total": 583,
+      "github": 560,
       "sourceforge": 23,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -139,11 +139,11 @@
       "assets": [
         {
           "name": "AppGeekSetup.exe",
-          "count": 316
+          "count": 328
         },
         {
           "name": "AppGeek.exe",
-          "count": 176
+          "count": 178
         },
         {
           "name": "AppGeek-light.exe",
@@ -155,8 +155,8 @@
       "name": "TranscribeGeek",
       "url": "https://github.com/techygeekshome/TranscribeGeek",
       "description": "Turns recordings into text, on your own machine.",
-      "total": 352,
-      "github": 341,
+      "total": 356,
+      "github": 345,
       "sourceforge": 11,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -166,7 +166,7 @@
       "assets": [
         {
           "name": "TranscribeGeekSetup.exe",
-          "count": 265
+          "count": 269
         },
         {
           "name": "TranscribeGeek-portable.exe",
@@ -201,9 +201,9 @@
       "name": "LingoGeek",
       "url": "https://github.com/techygeekshome/LingoGeek",
       "description": "Free offline document translator for Windows. Word, PDF, subtitles and text, translated on your own machine with no account and no character limit.",
-      "total": 157,
-      "github": 135,
-      "sourceforge": 22,
+      "total": 162,
+      "github": 138,
+      "sourceforge": 24,
       "chocolatey": 0,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -212,7 +212,7 @@
       "assets": [
         {
           "name": "LingoGeekSetup.exe",
-          "count": 135
+          "count": 138
         }
       ]
     },
@@ -266,8 +266,8 @@
       "name": "ShortGeek",
       "url": "https://github.com/techygeekshome/ShortGeek",
       "description": "Free short video maker for Windows. Turns one of your guides, an RSS feed or a topic into a narrated, captioned vertical short, rendered on your own machine.",
-      "total": 84,
-      "github": 80,
+      "total": 86,
+      "github": 82,
       "sourceforge": 4,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -277,7 +277,7 @@
       "assets": [
         {
           "name": "ShortGeekSetup.exe",
-          "count": 80
+          "count": 82
         }
       ]
     },
@@ -285,8 +285,8 @@
       "name": "ReelGeek",
       "url": "https://github.com/techygeekshome/ReelGeek",
       "description": "Free, open source reel maker for Windows. Turns a folder of photos into a vertical edit cut to a beat grid, and never uploads a thing.",
-      "total": 60,
-      "github": 52,
+      "total": 62,
+      "github": 54,
       "sourceforge": 8,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -296,7 +296,7 @@
       "assets": [
         {
           "name": "ReelGeekSetup.exe",
-          "count": 52
+          "count": 54
         }
       ]
     },
