@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-23T11:30:44Z",
-  "total": 18680,
+  "generated": "2026-09-24T11:41:21Z",
+  "total": 18789,
   "sources": {
-    "github": 8402,
-    "sourceforge": 437,
+    "github": 8498,
+    "sourceforge": 450,
     "chocolatey": 9841,
     "majorgeeks": 0,
     "softpedia": 0
@@ -17,9 +17,9 @@
       "name": "Ultimate-Settings-Panel",
       "url": "https://github.com/techygeekshome/Ultimate-Settings-Panel",
       "description": "250+ Windows settings, tools, diagnostics & commands in one fast, searchable panel. Native Windows app + web edition. Free.",
-      "total": 10861,
-      "github": 916,
-      "sourceforge": 104,
+      "total": 10864,
+      "github": 917,
+      "sourceforge": 106,
       "chocolatey": 9841,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -28,7 +28,7 @@
       "assets": [
         {
           "name": "Ultimate-Settings-Panel.zip",
-          "count": 530
+          "count": 531
         },
         {
           "name": "Ultimate.Settings.Panel.exe",
@@ -40,8 +40,8 @@
       "name": "PDFGeek",
       "url": "https://github.com/techygeekshome/PDFGeek",
       "description": "Free, offline PDF toolkit for Windows. Merge, split, extract, rotate, watermark and password-protect PDFs on your own machine \u2014 no file limits, no uploads, no subscription.",
-      "total": 2828,
-      "github": 2762,
+      "total": 2836,
+      "github": 2770,
       "sourceforge": 66,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -51,11 +51,34 @@
       "assets": [
         {
           "name": "PDFGeek.exe",
-          "count": 1489
+          "count": 1494
         },
         {
           "name": "PDFGeekSetup.exe",
-          "count": 1273
+          "count": 1276
+        }
+      ]
+    },
+    {
+      "name": "DriverGeek",
+      "url": "https://github.com/techygeekshome/DriverGeek",
+      "description": "Free, open source driver inventory for Windows. See every driver you have, and the updates Windows Update keeps hidden under optional updates.",
+      "total": 1096,
+      "github": 1062,
+      "sourceforge": 34,
+      "chocolatey": 0,
+      "majorgeeks": 0,
+      "softpedia": 0,
+      "releases": 5,
+      "latest": "v1.1.1",
+      "assets": [
+        {
+          "name": "DriverGeekSetup.exe",
+          "count": 620
+        },
+        {
+          "name": "DriverGeek-portable.exe",
+          "count": 442
         }
       ]
     },
@@ -63,8 +86,8 @@
       "name": "CleanGeek",
       "url": "https://github.com/techygeekshome/CleanGeek",
       "description": "Free, open source disk cleaner for Windows. Recovers real space from caches, temp files and update leftovers - and has no registry cleaner, deliberately.",
-      "total": 1075,
-      "github": 1052,
+      "total": 1086,
+      "github": 1063,
       "sourceforge": 23,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -74,7 +97,7 @@
       "assets": [
         {
           "name": "CleanGeekSetup.exe",
-          "count": 688
+          "count": 699
         },
         {
           "name": "CleanGeek-portable.exe",
@@ -83,35 +106,12 @@
       ]
     },
     {
-      "name": "DriverGeek",
-      "url": "https://github.com/techygeekshome/DriverGeek",
-      "description": "Free, open source driver inventory for Windows. See every driver you have, and the updates Windows Update keeps hidden under optional updates.",
-      "total": 1066,
-      "github": 1035,
-      "sourceforge": 31,
-      "chocolatey": 0,
-      "majorgeeks": 0,
-      "softpedia": 0,
-      "releases": 5,
-      "latest": "v1.1.1",
-      "assets": [
-        {
-          "name": "DriverGeekSetup.exe",
-          "count": 601
-        },
-        {
-          "name": "DriverGeek-portable.exe",
-          "count": 434
-        }
-      ]
-    },
-    {
       "name": "DiskGeek",
       "url": "https://github.com/techygeekshome/DiskGeek",
       "description": "Free disk space analyser for Windows. Shows what is actually filling a drive as a sortable tree, finds the biggest files and duplicates, and opens any folder straight in Explorer.",
-      "total": 940,
-      "github": 838,
-      "sourceforge": 102,
+      "total": 949,
+      "github": 845,
+      "sourceforge": 104,
       "chocolatey": 0,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -120,7 +120,7 @@
       "assets": [
         {
           "name": "DiskGeekSetup.exe",
-          "count": 838
+          "count": 845
         }
       ]
     },
@@ -128,8 +128,8 @@
       "name": "AppGeek",
       "url": "https://github.com/techygeekshome/AppGeek",
       "description": "Free, open source installer and updater for Windows apps. Scan what's installed, update everything in one run, and install from a curated catalogue \u2014 built on winget.",
-      "total": 645,
-      "github": 614,
+      "total": 661,
+      "github": 630,
       "sourceforge": 31,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -139,15 +139,15 @@
       "assets": [
         {
           "name": "AppGeekSetup.exe",
-          "count": 347
+          "count": 359
         },
         {
           "name": "AppGeek.exe",
-          "count": 212
+          "count": 215
         },
         {
           "name": "AppGeek-light.exe",
-          "count": 55
+          "count": 56
         }
       ]
     },
@@ -155,9 +155,9 @@
       "name": "TranscribeGeek",
       "url": "https://github.com/techygeekshome/TranscribeGeek",
       "description": "Turns recordings into text, on your own machine.",
-      "total": 387,
-      "github": 373,
-      "sourceforge": 14,
+      "total": 401,
+      "github": 384,
+      "sourceforge": 17,
       "chocolatey": 0,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -166,7 +166,7 @@
       "assets": [
         {
           "name": "TranscribeGeekSetup.exe",
-          "count": 296
+          "count": 307
         },
         {
           "name": "TranscribeGeek-portable.exe",
@@ -178,8 +178,8 @@
       "name": "CutGeek",
       "url": "https://github.com/techygeekshome/CutGeek",
       "description": "Removes photo backgrounds at full size.",
-      "total": 217,
-      "github": 210,
+      "total": 224,
+      "github": 217,
       "sourceforge": 7,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -189,11 +189,11 @@
       "assets": [
         {
           "name": "CutGeekSetup.exe",
-          "count": 189
+          "count": 195
         },
         {
           "name": "CutGeek-portable.exe",
-          "count": 21
+          "count": 22
         }
       ]
     },
@@ -201,9 +201,9 @@
       "name": "LingoGeek",
       "url": "https://github.com/techygeekshome/LingoGeek",
       "description": "Free offline document translator for Windows. Word, PDF, subtitles and text, translated on your own machine with no account and no character limit.",
-      "total": 184,
+      "total": 185,
       "github": 156,
-      "sourceforge": 28,
+      "sourceforge": 29,
       "chocolatey": 0,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -220,9 +220,9 @@
       "name": "SoundGeek",
       "url": "https://github.com/techygeekshome/SoundGeek",
       "description": "Free, offline audio cleanup for Windows. Removes background noise and mains hum and evens out the levels, on your own machine, with nothing uploaded.",
-      "total": 155,
-      "github": 145,
-      "sourceforge": 10,
+      "total": 159,
+      "github": 147,
+      "sourceforge": 12,
       "chocolatey": 0,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -231,7 +231,7 @@
       "assets": [
         {
           "name": "SoundGeekSetup.exe",
-          "count": 138
+          "count": 140
         },
         {
           "name": "SoundGeek-portable.exe",
@@ -243,8 +243,8 @@
       "name": "AuthGeek",
       "url": "https://github.com/techygeekshome/AuthGeek",
       "description": "Free, offline two-factor authenticator for Windows. Your TOTP and HOTP codes in one encrypted file on your own machine, with backup and restore built in. No account, no server, nothing uploaded.",
-      "total": 134,
-      "github": 127,
+      "total": 140,
+      "github": 133,
       "sourceforge": 7,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -254,7 +254,7 @@
       "assets": [
         {
           "name": "AuthGeekSetup.exe",
-          "count": 120
+          "count": 126
         },
         {
           "name": "AuthGeek-portable.exe",
