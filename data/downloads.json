@@ -1,9 +1,9 @@
 {
-  "generated": "2026-10-22T11:47:13Z",
-  "total": 24652,
+  "generated": "2026-10-23T11:34:16Z",
+  "total": 24961,
   "sources": {
-    "github": 13899,
-    "sourceforge": 912,
+    "github": 14195,
+    "sourceforge": 925,
     "chocolatey": 9841,
     "majorgeeks": 0,
     "softpedia": 0
@@ -17,8 +17,8 @@
       "name": "Ultimate-Settings-Panel",
       "url": "https://github.com/techygeekshome/Ultimate-Settings-Panel",
       "description": "250+ Windows settings, tools, diagnostics & commands in one fast, searchable panel. Native Windows app + web edition. Free.",
-      "total": 11154,
-      "github": 1147,
+      "total": 11160,
+      "github": 1153,
       "sourceforge": 166,
       "chocolatey": 9841,
       "majorgeeks": 0,
@@ -28,11 +28,11 @@
       "assets": [
         {
           "name": "Ultimate-Settings-Panel.zip",
-          "count": 734
+          "count": 739
         },
         {
           "name": "Ultimate.Settings.Panel.exe",
-          "count": 413
+          "count": 414
         }
       ]
     },
@@ -40,9 +40,9 @@
       "name": "PDFGeek",
       "url": "https://github.com/techygeekshome/PDFGeek",
       "description": "Free, open source PDF toolkit for Windows. Merge, split, extract, rotate, watermark and password-protect PDFs on your own machine. No file limits, no uploads, no subscription.",
-      "total": 3282,
-      "github": 3163,
-      "sourceforge": 119,
+      "total": 3297,
+      "github": 3174,
+      "sourceforge": 123,
       "chocolatey": 0,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -51,11 +51,11 @@
       "assets": [
         {
           "name": "PDFGeek.exe",
-          "count": 1596
+          "count": 1600
         },
         {
           "name": "PDFGeekSetup.exe",
-          "count": 1567
+          "count": 1574
         }
       ]
     },
@@ -63,9 +63,9 @@
       "name": "DriverGeek",
       "url": "https://github.com/techygeekshome/DriverGeek",
       "description": "Free, open source driver inventory for Windows. See every driver you have, and the updates Windows Update keeps hidden under optional updates.",
-      "total": 2829,
-      "github": 2701,
-      "sourceforge": 128,
+      "total": 2861,
+      "github": 2732,
+      "sourceforge": 129,
       "chocolatey": 0,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -74,11 +74,11 @@
       "assets": [
         {
           "name": "DriverGeekSetup.exe",
-          "count": 1730
+          "count": 1758
         },
         {
           "name": "DriverGeek-portable.exe",
-          "count": 971
+          "count": 974
         }
       ]
     },
@@ -86,8 +86,8 @@
       "name": "CleanGeek",
       "url": "https://github.com/techygeekshome/CleanGeek",
       "description": "Free, open source disk cleaner for Windows. Recovers real space from caches, temp files and update leftovers - and has no registry cleaner, deliberately.",
-      "total": 1848,
-      "github": 1805,
+      "total": 1864,
+      "github": 1821,
       "sourceforge": 43,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -97,11 +97,11 @@
       "assets": [
         {
           "name": "CleanGeekSetup.exe",
-          "count": 1116
+          "count": 1129
         },
         {
           "name": "CleanGeek-portable.exe",
-          "count": 689
+          "count": 692
         }
       ]
     },
@@ -109,9 +109,9 @@
       "name": "DiskGeek",
       "url": "https://github.com/techygeekshome/DiskGeek",
       "description": "Free disk space analyser for Windows. Shows what is actually filling a drive as a sortable tree, finds the biggest files and duplicates, and opens any folder straight in Explorer.",
-      "total": 1451,
-      "github": 1300,
-      "sourceforge": 151,
+      "total": 1460,
+      "github": 1308,
+      "sourceforge": 152,
       "chocolatey": 0,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -120,7 +120,7 @@
       "assets": [
         {
           "name": "DiskGeekSetup.exe",
-          "count": 1300
+          "count": 1308
         }
       ]
     },
@@ -128,8 +128,8 @@
       "name": "AppGeek",
       "url": "https://github.com/techygeekshome/AppGeek",
       "description": "Free, open source installer and updater for Windows apps. Scan what's installed, update everything in one run, and install from a curated catalogue. Built on winget.",
-      "total": 1009,
-      "github": 953,
+      "total": 1025,
+      "github": 969,
       "sourceforge": 56,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -139,15 +139,15 @@
       "assets": [
         {
           "name": "AppGeekSetup.exe",
-          "count": 587
+          "count": 600
         },
         {
           "name": "AppGeek.exe",
-          "count": 291
+          "count": 293
         },
         {
           "name": "AppGeek-light.exe",
-          "count": 75
+          "count": 76
         }
       ]
     },
@@ -155,9 +155,9 @@
       "name": "TranscribeGeek",
       "url": "https://github.com/techygeekshome/TranscribeGeek",
       "description": "Free, open source transcription for Windows. Turns recordings into text on your own machine, with nothing uploaded and no minute limits.",
-      "total": 715,
-      "github": 682,
-      "sourceforge": 33,
+      "total": 740,
+      "github": 703,
+      "sourceforge": 37,
       "chocolatey": 0,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -166,11 +166,11 @@
       "assets": [
         {
           "name": "TranscribeGeekSetup.exe",
-          "count": 574
+          "count": 594
         },
         {
           "name": "TranscribeGeek-portable.exe",
-          "count": 108
+          "count": 109
         }
       ]
     },
@@ -178,8 +178,8 @@
       "name": "CutGeek",
       "url": "https://github.com/techygeekshome/CutGeek",
       "description": "Free, open source background remover for Windows. Cuts the background out of a photo on your own machine, at full resolution, with no watermark and nothing uploaded.",
-      "total": 532,
-      "github": 504,
+      "total": 556,
+      "github": 528,
       "sourceforge": 28,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -189,7 +189,7 @@
       "assets": [
         {
           "name": "CutGeekSetup.exe",
-          "count": 463
+          "count": 487
         },
         {
           "name": "CutGeek-portable.exe",
@@ -201,9 +201,9 @@
       "name": "LingoGeek",
       "url": "https://github.com/techygeekshome/LingoGeek",
       "description": "Free offline document translator for Windows. Word, PDF, subtitles and text, translated on your own machine with no account and no character limit.",
-      "total": 478,
-      "github": 366,
-      "sourceforge": 112,
+      "total": 503,
+      "github": 390,
+      "sourceforge": 113,
       "chocolatey": 0,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -212,7 +212,7 @@
       "assets": [
         {
           "name": "LingoGeekSetup.exe",
-          "count": 366
+          "count": 390
         }
       ]
     },
@@ -220,9 +220,9 @@
       "name": "SoundGeek",
       "url": "https://github.com/techygeekshome/SoundGeek",
       "description": "Free, offline audio cleanup for Windows. Removes background noise and mains hum and evens out the levels, on your own machine, with nothing uploaded.",
-      "total": 390,
-      "github": 357,
-      "sourceforge": 33,
+      "total": 406,
+      "github": 372,
+      "sourceforge": 34,
       "chocolatey": 0,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -231,7 +231,7 @@
       "assets": [
         {
           "name": "SoundGeekSetup.exe",
-          "count": 349
+          "count": 364
         },
         {
           "name": "SoundGeek-portable.exe",
@@ -243,8 +243,8 @@
       "name": "AuthGeek",
       "url": "https://github.com/techygeekshome/AuthGeek",
       "description": "Free, offline two-factor authenticator for Windows. Your TOTP and HOTP codes in one encrypted file on your own machine, with backup and restore built in. No account, no server, nothing uploaded.",
-      "total": 334,
-      "github": 325,
+      "total": 357,
+      "github": 348,
       "sourceforge": 9,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -254,7 +254,7 @@
       "assets": [
         {
           "name": "AuthGeekSetup.exe",
-          "count": 312
+          "count": 335
         },
         {
           "name": "AuthGeek-portable.exe",
@@ -266,9 +266,9 @@
       "name": "ReelGeek",
       "url": "https://github.com/techygeekshome/ReelGeek",
       "description": "Free, open source reel maker for Windows. Turns a folder of photos into a vertical edit cut to a beat grid, and never uploads a thing.",
-      "total": 259,
-      "github": 232,
-      "sourceforge": 27,
+      "total": 265,
+      "github": 237,
+      "sourceforge": 28,
       "chocolatey": 0,
       "majorgeeks": 0,
       "softpedia": 0,
@@ -277,7 +277,7 @@
       "assets": [
         {
           "name": "ReelGeekSetup.exe",
-          "count": 232
+          "count": 237
         }
       ]
     },
@@ -285,8 +285,8 @@
       "name": "ShortGeek",
       "url": "https://github.com/techygeekshome/ShortGeek",
       "description": "Free short video maker for Windows. Paste a script and get a narrated, captioned vertical short, rendered on your own machine.",
-      "total": 227,
-      "github": 220,
+      "total": 230,
+      "github": 223,
       "sourceforge": 7,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -296,7 +296,7 @@
       "assets": [
         {
           "name": "ShortGeekSetup.exe",
-          "count": 220
+          "count": 223
         }
       ]
     },
@@ -304,8 +304,8 @@
       "name": "GridSaver",
       "url": "https://github.com/techygeekshome/GridSaver",
       "description": "Free browser extension that saves photos, reels and carousels from an Instagram profile or post in full quality, in one ZIP.",
-      "total": 25,
-      "github": 25,
+      "total": 34,
+      "github": 34,
       "sourceforge": 0,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -315,19 +315,19 @@
       "assets": [
         {
           "name": "GridSaver.zip",
-          "count": 19
-        },
-        {
-          "name": "GridSaver-chrome.zip",
-          "count": 3
+          "count": 24
         },
         {
           "name": "GridSaver-firefox.zip",
-          "count": 3
+          "count": 5
+        },
+        {
+          "name": "GridSaver-chrome.zip",
+          "count": 4
         },
         {
           "name": "GridSaver-edge.zip",
-          "count": 0
+          "count": 1
         }
       ]
     },
@@ -335,8 +335,8 @@
       "name": "PageSaver",
       "url": "https://github.com/techygeekshome/PageSaver",
       "description": "Free browser extension: save every image on a web page at full size, plus its videos (HLS and DASH streams joined into MP4), in one ZIP. Chrome, Edge, Firefox.",
-      "total": 21,
-      "github": 21,
+      "total": 26,
+      "github": 26,
       "sourceforge": 0,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -346,19 +346,19 @@
       "assets": [
         {
           "name": "PageSaver.zip",
-          "count": 16
+          "count": 18
         },
         {
           "name": "PageSaver-firefox.zip",
-          "count": 3
+          "count": 4
         },
         {
           "name": "PageSaver-edge.zip",
-          "count": 2
+          "count": 3
         },
         {
           "name": "PageSaver-chrome.zip",
-          "count": 0
+          "count": 1
         }
       ]
     },
@@ -366,8 +366,8 @@
       "name": "BoardSaver",
       "url": "https://github.com/techygeekshome/BoardSaver",
       "description": "Free browser extension that saves every image on a Pinterest board at full quality, removes duplicates and downloads it all as one ZIP.",
-      "total": 19,
-      "github": 19,
+      "total": 24,
+      "github": 24,
       "sourceforge": 0,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -377,19 +377,19 @@
       "assets": [
         {
           "name": "BoardSaver.zip",
-          "count": 14
+          "count": 16
         },
         {
           "name": "BoardSaver-firefox.zip",
-          "count": 4
+          "count": 5
         },
         {
           "name": "BoardSaver-chrome.zip",
-          "count": 1
+          "count": 2
         },
         {
           "name": "BoardSaver-edge.zip",
-          "count": 0
+          "count": 1
         }
       ]
     },
@@ -397,8 +397,8 @@
       "name": "ClipSaver",
       "url": "https://github.com/techygeekshome/ClipSaver",
       "description": "Free browser extension that saves TikTok videos and photo posts from a profile or single video in the best quality, in one ZIP.",
-      "total": 11,
-      "github": 11,
+      "total": 15,
+      "github": 15,
       "sourceforge": 0,
       "chocolatey": 0,
       "majorgeeks": 0,
@@ -408,19 +408,205 @@
       "assets": [
         {
           "name": "ClipSaver.zip",
-          "count": 10
+          "count": 11
         },
         {
           "name": "ClipSaver-firefox.zip",
-          "count": 1
+          "count": 2
         },
         {
           "name": "ClipSaver-chrome.zip",
-          "count": 0
+          "count": 1
         },
         {
           "name": "ClipSaver-edge.zip",
-          "count": 0
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "ImageFormatSaver",
+      "url": "https://github.com/techygeekshome/ImageFormatSaver",
+      "description": "Free browser extension: right-click any picture to save it as JPG, PNG or WebP, or copy it as PNG. Converted on your computer, no tracking. Chrome, Edge, Firefox.",
+      "total": 12,
+      "github": 12,
+      "sourceforge": 0,
+      "chocolatey": 0,
+      "majorgeeks": 0,
+      "softpedia": 0,
+      "releases": 1,
+      "latest": "v1.0.0",
+      "assets": [
+        {
+          "name": "ImageFormatSaver.zip",
+          "count": 7
+        },
+        {
+          "name": "ImageFormatSaver-firefox.zip",
+          "count": 3
+        },
+        {
+          "name": "ImageFormatSaver-chrome.zip",
+          "count": 1
+        },
+        {
+          "name": "ImageFormatSaver-edge.zip",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "RedditSaver",
+      "url": "https://github.com/techygeekshome/RedditSaver",
+      "description": "Free browser extension: save the pictures, galleries and videos (with sound) from a Reddit post, user or subreddit in one ZIP. Chrome, Edge, Firefox.",
+      "total": 12,
+      "github": 12,
+      "sourceforge": 0,
+      "chocolatey": 0,
+      "majorgeeks": 0,
+      "softpedia": 0,
+      "releases": 1,
+      "latest": "v1.0.0",
+      "assets": [
+        {
+          "name": "RedditSaver.zip",
+          "count": 7
+        },
+        {
+          "name": "RedditSaver-edge.zip",
+          "count": 2
+        },
+        {
+          "name": "RedditSaver-firefox.zip",
+          "count": 2
+        },
+        {
+          "name": "RedditSaver-chrome.zip",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "BlueskySaver",
+      "url": "https://github.com/techygeekshome/BlueskySaver",
+      "description": "Free, open source browser extension: save every picture and video from a Bluesky profile, post, feed or list in one ZIP. Videos with sound, no sign-in.",
+      "total": 10,
+      "github": 10,
+      "sourceforge": 0,
+      "chocolatey": 0,
+      "majorgeeks": 0,
+      "softpedia": 0,
+      "releases": 1,
+      "latest": "v1.0.0",
+      "assets": [
+        {
+          "name": "BlueskySaver-firefox.zip",
+          "count": 4
+        },
+        {
+          "name": "BlueskySaver.zip",
+          "count": 4
+        },
+        {
+          "name": "BlueskySaver-chrome.zip",
+          "count": 1
+        },
+        {
+          "name": "BlueskySaver-edge.zip",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "MarkdownSaver",
+      "url": "https://github.com/techygeekshome/MarkdownSaver",
+      "description": "Free browser extension: save any web page or selection as clean Markdown for Obsidian and notes, with front matter and a ZIP of its images.",
+      "total": 10,
+      "github": 10,
+      "sourceforge": 0,
+      "chocolatey": 0,
+      "majorgeeks": 0,
+      "softpedia": 0,
+      "releases": 1,
+      "latest": "v1.0.0",
+      "assets": [
+        {
+          "name": "MarkdownSaver-firefox.zip",
+          "count": 4
+        },
+        {
+          "name": "MarkdownSaver.zip",
+          "count": 3
+        },
+        {
+          "name": "MarkdownSaver-chrome.zip",
+          "count": 2
+        },
+        {
+          "name": "MarkdownSaver-edge.zip",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "PDFGeekExtension",
+      "url": "https://github.com/techygeekshome/PDFGeekExtension",
+      "description": "Free browser extension with PDF tools that never upload your files: merge, split, rotate, remove pages, pictures to PDF, AES-256 passwords and lossless shrink.",
+      "total": 10,
+      "github": 10,
+      "sourceforge": 0,
+      "chocolatey": 0,
+      "majorgeeks": 0,
+      "softpedia": 0,
+      "releases": 2,
+      "latest": "v1.1.0",
+      "assets": [
+        {
+          "name": "PDFGeek.zip",
+          "count": 4
+        },
+        {
+          "name": "PDFGeek-chrome.zip",
+          "count": 2
+        },
+        {
+          "name": "PDFGeek-edge.zip",
+          "count": 2
+        },
+        {
+          "name": "PDFGeek-firefox.zip",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "RefreshGeek",
+      "url": "https://github.com/techygeekshome/RefreshGeek",
+      "description": "Free browser extension that auto refreshes any tab on a timer and alerts you when the page changes. No tracking.",
+      "total": 9,
+      "github": 9,
+      "sourceforge": 0,
+      "chocolatey": 0,
+      "majorgeeks": 0,
+      "softpedia": 0,
+      "releases": 1,
+      "latest": "v1.0.0",
+      "assets": [
+        {
+          "name": "RefreshGeek.zip",
+          "count": 4
+        },
+        {
+          "name": "RefreshGeek-firefox.zip",
+          "count": 3
+        },
+        {
+          "name": "RefreshGeek-chrome.zip",
+          "count": 1
+        },
+        {
+          "name": "RefreshGeek-edge.zip",
+          "count": 1
         }
       ]
     },
@@ -448,9 +634,9 @@
       ]
     },
     {
-      "name": "ImageFormatSaver",
-      "url": "https://github.com/techygeekshome/ImageFormatSaver",
-      "description": "Free browser extension: right-click any picture to save it as JPG, PNG or WebP, or copy it as PNG. Converted on your computer, no tracking. Chrome, Edge, Firefox.",
+      "name": "ErrorGeek",
+      "url": "https://github.com/techygeekshome/ErrorGeek",
+      "description": "Free, open source browser extension: look up any Windows error code offline (HRESULT, Win32, NTSTATUS, Windows Update, SCCM and Intune).",
       "total": 8,
       "github": 8,
       "sourceforge": 0,
@@ -461,27 +647,27 @@
       "latest": "v1.0.0",
       "assets": [
         {
-          "name": "ImageFormatSaver.zip",
-          "count": 6
+          "name": "ErrorGeek-firefox.zip",
+          "count": 3
         },
         {
-          "name": "ImageFormatSaver-firefox.zip",
-          "count": 2
+          "name": "ErrorGeek.zip",
+          "count": 3
         },
         {
-          "name": "ImageFormatSaver-chrome.zip",
-          "count": 0
+          "name": "ErrorGeek-chrome.zip",
+          "count": 1
         },
         {
-          "name": "ImageFormatSaver-edge.zip",
-          "count": 0
+          "name": "ErrorGeek-edge.zip",
+          "count": 1
         }
       ]
     },
     {
-      "name": "RedditSaver",
-      "url": "https://github.com/techygeekshome/RedditSaver",
-      "description": "Free browser extension: save the pictures, galleries and videos (with sound) from a Reddit post, user or subreddit in one ZIP. Chrome, Edge, Firefox.",
+      "name": "FocusGeek",
+      "url": "https://github.com/techygeekshome/FocusGeek",
+      "description": "Free browser extension that blocks distracting websites all the time, on a schedule or during a focus timer. No tracking.",
       "total": 8,
       "github": 8,
       "sourceforge": 0,
@@ -492,20 +678,20 @@
       "latest": "v1.0.0",
       "assets": [
         {
-          "name": "RedditSaver.zip",
-          "count": 6
+          "name": "FocusGeek.zip",
+          "count": 4
         },
         {
-          "name": "RedditSaver-edge.zip",
+          "name": "FocusGeek-firefox.zip",
+          "count": 2
+        },
+        {
+          "name": "FocusGeek-chrome.zip",
           "count": 1
         },
         {
-          "name": "RedditSaver-firefox.zip",
+          "name": "FocusGeek-edge.zip",
           "count": 1
-        },
-        {
-          "name": "RedditSaver-chrome.zip",
-          "count": 0
         }
       ]
     },
@@ -533,9 +719,40 @@
       ]
     },
     {
-      "name": "BlueskySaver",
-      "url": "https://github.com/techygeekshome/BlueskySaver",
-      "description": "Free, open source browser extension: save every picture and video from a Bluesky profile, post, feed or list in one ZIP. Videos with sound, no sign-in.",
+      "name": "TabGeek",
+      "url": "https://github.com/techygeekshome/TabGeek",
+      "description": "Free tab suspender browser extension: put tabs you are not using to sleep to free up memory. Pinned, playing and chosen sites stay awake.",
+      "total": 7,
+      "github": 7,
+      "sourceforge": 0,
+      "chocolatey": 0,
+      "majorgeeks": 0,
+      "softpedia": 0,
+      "releases": 1,
+      "latest": "v1.0.0",
+      "assets": [
+        {
+          "name": "TabGeek.zip",
+          "count": 3
+        },
+        {
+          "name": "TabGeek-firefox.zip",
+          "count": 2
+        },
+        {
+          "name": "TabGeek-chrome.zip",
+          "count": 1
+        },
+        {
+          "name": "TabGeek-edge.zip",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "ScreenshotSaver",
+      "url": "https://github.com/techygeekshome/ScreenshotSaver",
+      "description": "Free full page screenshot browser extension: capture the whole page, the visible part or an area, and save as PNG, JPG or PDF, or copy it. Nothing leaves your computer.",
       "total": 6,
       "github": 6,
       "sourceforge": 0,
@@ -546,27 +763,27 @@
       "latest": "v1.0.0",
       "assets": [
         {
-          "name": "BlueskySaver-firefox.zip",
+          "name": "ScreenshotSaver.zip",
           "count": 3
         },
         {
-          "name": "BlueskySaver.zip",
-          "count": 3
+          "name": "ScreenshotSaver-chrome.zip",
+          "count": 1
         },
         {
-          "name": "BlueskySaver-chrome.zip",
-          "count": 0
+          "name": "ScreenshotSaver-edge.zip",
+          "count": 1
         },
         {
-          "name": "BlueskySaver-edge.zip",
-          "count": 0
+          "name": "ScreenshotSaver-firefox.zip",
+          "count": 1
         }
       ]
     },
     {
-      "name": "MarkdownSaver",
-      "url": "https://github.com/techygeekshome/MarkdownSaver",
-      "description": "Free browser extension: save any web page or selection as clean Markdown for Obsidian and notes, with front matter and a ZIP of its images.",
+      "name": "VolumeGeek",
+      "url": "https://github.com/techygeekshome/VolumeGeek",
+      "description": "Free volume booster browser extension: boost any tab up to 600%, with a limiter, a bass, mid and treble equaliser and a mute button. No tracking.",
       "total": 5,
       "github": 5,
       "sourceforge": 0,
@@ -577,89 +794,27 @@
       "latest": "v1.0.0",
       "assets": [
         {
-          "name": "MarkdownSaver-firefox.zip",
-          "count": 3
-        },
-        {
-          "name": "MarkdownSaver.zip",
+          "name": "VolumeGeek.zip",
           "count": 2
         },
         {
-          "name": "MarkdownSaver-chrome.zip",
-          "count": 0
-        },
-        {
-          "name": "MarkdownSaver-edge.zip",
-          "count": 0
-        }
-      ]
-    },
-    {
-      "name": "ErrorGeek",
-      "url": "https://github.com/techygeekshome/ErrorGeek",
-      "description": "Free, open source browser extension: look up any Windows error code offline (HRESULT, Win32, NTSTATUS, Windows Update, SCCM and Intune).",
-      "total": 4,
-      "github": 4,
-      "sourceforge": 0,
-      "chocolatey": 0,
-      "majorgeeks": 0,
-      "softpedia": 0,
-      "releases": 1,
-      "latest": "v1.0.0",
-      "assets": [
-        {
-          "name": "ErrorGeek-firefox.zip",
-          "count": 2
-        },
-        {
-          "name": "ErrorGeek.zip",
-          "count": 2
-        },
-        {
-          "name": "ErrorGeek-chrome.zip",
-          "count": 0
-        },
-        {
-          "name": "ErrorGeek-edge.zip",
-          "count": 0
-        }
-      ]
-    },
-    {
-      "name": "FocusGeek",
-      "url": "https://github.com/techygeekshome/FocusGeek",
-      "description": "Free browser extension that blocks distracting websites all the time, on a schedule or during a focus timer. No tracking.",
-      "total": 4,
-      "github": 4,
-      "sourceforge": 0,
-      "chocolatey": 0,
-      "majorgeeks": 0,
-      "softpedia": 0,
-      "releases": 1,
-      "latest": "v1.0.0",
-      "assets": [
-        {
-          "name": "FocusGeek.zip",
-          "count": 3
-        },
-        {
-          "name": "FocusGeek-firefox.zip",
+          "name": "VolumeGeek-chrome.zip",
           "count": 1
         },
         {
-          "name": "FocusGeek-chrome.zip",
-          "count": 0
+          "name": "VolumeGeek-edge.zip",
+          "count": 1
         },
         {
-          "name": "FocusGeek-edge.zip",
-          "count": 0
+          "name": "VolumeGeek-firefox.zip",
+          "count": 1
         }
       ]
     },
     {
-      "name": "RefreshGeek",
-      "url": "https://github.com/techygeekshome/RefreshGeek",
-      "description": "Free browser extension that auto refreshes any tab on a timer and alerts you when the page changes. No tracking.",
+      "name": "ColorGeek",
+      "url": "https://github.com/techygeekshome/ColorGeek",
+      "description": "Free colour picker browser extension: pick any colour on your screen and copy it as HEX, RGB or HSL. Contrast check, last 24 colours, CSS or JSON export. No network access.",
       "total": 4,
       "github": 4,
       "sourceforge": 0,
@@ -670,20 +825,113 @@
       "latest": "v1.0.0",
       "assets": [
         {
-          "name": "RefreshGeek-firefox.zip",
-          "count": 2
+          "name": "ColorGeek-chrome.zip",
+          "count": 1
         },
         {
-          "name": "RefreshGeek.zip",
-          "count": 2
+          "name": "ColorGeek-edge.zip",
+          "count": 1
         },
         {
-          "name": "RefreshGeek-chrome.zip",
-          "count": 0
+          "name": "ColorGeek-firefox.zip",
+          "count": 1
         },
         {
-          "name": "RefreshGeek-edge.zip",
-          "count": 0
+          "name": "ColorGeek.zip",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "PiPGeek",
+      "url": "https://github.com/techygeekshome/PiPGeek",
+      "description": "Free picture-in-picture browser extension: pop any video out into a floating window with one click or Alt+P. Picks the main video, works on players that block it. No tracking.",
+      "total": 4,
+      "github": 4,
+      "sourceforge": 0,
+      "chocolatey": 0,
+      "majorgeeks": 0,
+      "softpedia": 0,
+      "releases": 1,
+      "latest": "v1.0.0",
+      "assets": [
+        {
+          "name": "PiPGeek-chrome.zip",
+          "count": 1
+        },
+        {
+          "name": "PiPGeek-edge.zip",
+          "count": 1
+        },
+        {
+          "name": "PiPGeek-firefox.zip",
+          "count": 1
+        },
+        {
+          "name": "PiPGeek.zip",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "SpeedGeek",
+      "url": "https://github.com/techygeekshome/SpeedGeek",
+      "description": "Free video speed controller browser extension: speed up or slow down any video or audio from 0.1x to 16x with keys or a click. Remembers your speed per site. No tracking.",
+      "total": 4,
+      "github": 4,
+      "sourceforge": 0,
+      "chocolatey": 0,
+      "majorgeeks": 0,
+      "softpedia": 0,
+      "releases": 1,
+      "latest": "v1.0.0",
+      "assets": [
+        {
+          "name": "SpeedGeek-chrome.zip",
+          "count": 1
+        },
+        {
+          "name": "SpeedGeek-edge.zip",
+          "count": 1
+        },
+        {
+          "name": "SpeedGeek-firefox.zip",
+          "count": 1
+        },
+        {
+          "name": "SpeedGeek.zip",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "TextGeek",
+      "url": "https://github.com/techygeekshome/TextGeek",
+      "description": "Free browser extension: drag a box over any picture, video or screenshot and copy the text in it. Private OCR (Tesseract) runs on your computer, nothing uploaded.",
+      "total": 4,
+      "github": 4,
+      "sourceforge": 0,
+      "chocolatey": 0,
+      "majorgeeks": 0,
+      "softpedia": 0,
+      "releases": 1,
+      "latest": "v1.0.0",
+      "assets": [
+        {
+          "name": "TextGeek-chrome.zip",
+          "count": 1
+        },
+        {
+          "name": "TextGeek-edge.zip",
+          "count": 1
+        },
+        {
+          "name": "TextGeek-firefox.zip",
+          "count": 1
+        },
+        {
+          "name": "TextGeek.zip",
+          "count": 1
         }
       ]
     },
@@ -764,254 +1012,6 @@
         {
           "name": "neodark-1.1.7.zip",
           "count": 1
-        }
-      ]
-    },
-    {
-      "name": "TabGeek",
-      "url": "https://github.com/techygeekshome/TabGeek",
-      "description": "Free tab suspender browser extension: put tabs you are not using to sleep to free up memory. Pinned, playing and chosen sites stay awake.",
-      "total": 2,
-      "github": 2,
-      "sourceforge": 0,
-      "chocolatey": 0,
-      "majorgeeks": 0,
-      "softpedia": 0,
-      "releases": 1,
-      "latest": "v1.0.0",
-      "assets": [
-        {
-          "name": "TabGeek-firefox.zip",
-          "count": 1
-        },
-        {
-          "name": "TabGeek.zip",
-          "count": 1
-        },
-        {
-          "name": "TabGeek-chrome.zip",
-          "count": 0
-        },
-        {
-          "name": "TabGeek-edge.zip",
-          "count": 0
-        }
-      ]
-    },
-    {
-      "name": "PDFGeekExtension",
-      "url": "https://github.com/techygeekshome/PDFGeekExtension",
-      "description": "Free browser extension with PDF tools that never upload your files: merge, split, rotate, remove pages, pictures to PDF, AES-256 passwords and lossless shrink.",
-      "total": 1,
-      "github": 1,
-      "sourceforge": 0,
-      "chocolatey": 0,
-      "majorgeeks": 0,
-      "softpedia": 0,
-      "releases": 2,
-      "latest": "v1.1.0",
-      "assets": [
-        {
-          "name": "PDFGeek.zip",
-          "count": 1
-        },
-        {
-          "name": "PDFGeek-chrome.zip",
-          "count": 0
-        },
-        {
-          "name": "PDFGeek-edge.zip",
-          "count": 0
-        },
-        {
-          "name": "PDFGeek-firefox.zip",
-          "count": 0
-        }
-      ]
-    },
-    {
-      "name": "ScreenshotSaver",
-      "url": "https://github.com/techygeekshome/ScreenshotSaver",
-      "description": "Free full page screenshot browser extension: capture the whole page, the visible part or an area, and save as PNG, JPG or PDF, or copy it. Nothing leaves your computer.",
-      "total": 1,
-      "github": 1,
-      "sourceforge": 0,
-      "chocolatey": 0,
-      "majorgeeks": 0,
-      "softpedia": 0,
-      "releases": 1,
-      "latest": "v1.0.0",
-      "assets": [
-        {
-          "name": "ScreenshotSaver.zip",
-          "count": 1
-        },
-        {
-          "name": "ScreenshotSaver-chrome.zip",
-          "count": 0
-        },
-        {
-          "name": "ScreenshotSaver-edge.zip",
-          "count": 0
-        },
-        {
-          "name": "ScreenshotSaver-firefox.zip",
-          "count": 0
-        }
-      ]
-    },
-    {
-      "name": "ColorGeek",
-      "url": "https://github.com/techygeekshome/ColorGeek",
-      "description": "Free colour picker browser extension: pick any colour on your screen and copy it as HEX, RGB or HSL. Contrast check, last 24 colours, CSS or JSON export. No network access.",
-      "total": 0,
-      "github": 0,
-      "sourceforge": 0,
-      "chocolatey": 0,
-      "majorgeeks": 0,
-      "softpedia": 0,
-      "releases": 1,
-      "latest": "v1.0.0",
-      "assets": [
-        {
-          "name": "ColorGeek-chrome.zip",
-          "count": 0
-        },
-        {
-          "name": "ColorGeek-edge.zip",
-          "count": 0
-        },
-        {
-          "name": "ColorGeek-firefox.zip",
-          "count": 0
-        },
-        {
-          "name": "ColorGeek.zip",
-          "count": 0
-        }
-      ]
-    },
-    {
-      "name": "PiPGeek",
-      "url": "https://github.com/techygeekshome/PiPGeek",
-      "description": "Free picture-in-picture browser extension: pop any video out into a floating window with one click or Alt+P. Picks the main video, works on players that block it. No tracking.",
-      "total": 0,
-      "github": 0,
-      "sourceforge": 0,
-      "chocolatey": 0,
-      "majorgeeks": 0,
-      "softpedia": 0,
-      "releases": 1,
-      "latest": "v1.0.0",
-      "assets": [
-        {
-          "name": "PiPGeek-chrome.zip",
-          "count": 0
-        },
-        {
-          "name": "PiPGeek-edge.zip",
-          "count": 0
-        },
-        {
-          "name": "PiPGeek-firefox.zip",
-          "count": 0
-        },
-        {
-          "name": "PiPGeek.zip",
-          "count": 0
-        }
-      ]
-    },
-    {
-      "name": "SpeedGeek",
-      "url": "https://github.com/techygeekshome/SpeedGeek",
-      "description": "Free video speed controller browser extension: speed up or slow down any video or audio from 0.1x to 16x with keys or a click. Remembers your speed per site. No tracking.",
-      "total": 0,
-      "github": 0,
-      "sourceforge": 0,
-      "chocolatey": 0,
-      "majorgeeks": 0,
-      "softpedia": 0,
-      "releases": 1,
-      "latest": "v1.0.0",
-      "assets": [
-        {
-          "name": "SpeedGeek-chrome.zip",
-          "count": 0
-        },
-        {
-          "name": "SpeedGeek-edge.zip",
-          "count": 0
-        },
-        {
-          "name": "SpeedGeek-firefox.zip",
-          "count": 0
-        },
-        {
-          "name": "SpeedGeek.zip",
-          "count": 0
-        }
-      ]
-    },
-    {
-      "name": "TextGeek",
-      "url": "https://github.com/techygeekshome/TextGeek",
-      "description": "Free browser extension: drag a box over any picture, video or screenshot and copy the text in it. Private OCR (Tesseract) runs on your computer, nothing uploaded.",
-      "total": 0,
-      "github": 0,
-      "sourceforge": 0,
-      "chocolatey": 0,
-      "majorgeeks": 0,
-      "softpedia": 0,
-      "releases": 1,
-      "latest": "v1.0.0",
-      "assets": [
-        {
-          "name": "TextGeek-chrome.zip",
-          "count": 0
-        },
-        {
-          "name": "TextGeek-edge.zip",
-          "count": 0
-        },
-        {
-          "name": "TextGeek-firefox.zip",
-          "count": 0
-        },
-        {
-          "name": "TextGeek.zip",
-          "count": 0
-        }
-      ]
-    },
-    {
-      "name": "VolumeGeek",
-      "url": "https://github.com/techygeekshome/VolumeGeek",
-      "description": "Free volume booster browser extension: boost any tab up to 600%, with a limiter, a bass, mid and treble equaliser and a mute button. No tracking.",
-      "total": 0,
-      "github": 0,
-      "sourceforge": 0,
-      "chocolatey": 0,
-      "majorgeeks": 0,
-      "softpedia": 0,
-      "releases": 1,
-      "latest": "v1.0.0",
-      "assets": [
-        {
-          "name": "VolumeGeek-chrome.zip",
-          "count": 0
-        },
-        {
-          "name": "VolumeGeek-edge.zip",
-          "count": 0
-        },
-        {
-          "name": "VolumeGeek-firefox.zip",
-          "count": 0
-        },
-        {
-          "name": "VolumeGeek.zip",
-          "count": 0
         }
       ]
     }
