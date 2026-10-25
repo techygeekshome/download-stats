@@ -267,7 +267,7 @@ def category(name):
             return False
     if has("manifest.json"):
         return "Browser extensions"
-    if has("readme.txt") or has("style.css"):
+    if has("readme.txt") or has("style.css") or has("trunk/readme.txt"):
         return "WordPress"
     return "Windows tools"
 
