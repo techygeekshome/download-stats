@@ -115,8 +115,8 @@
   <div id="body"><p class="msg">Loading&hellip;</p></div>
 
   <footer>
-    Counted once a day from GitHub releases, the TechyGeeksHome website's download buttons,
-    SourceForge, Chocolatey, MajorGeeks and Softpedia. Checksum files are excluded. Website
+    Counted once a day from GitHub releases, SourceForge, the TechyGeeksHome website's
+    download buttons and Chocolatey. Checksum files are excluded. Website
     clicks go on to a GitHub download, so they are shown on their own but not added to the
     overall total twice. If a source cannot be reached, its last known figure is carried
     forward and said so above.
@@ -127,8 +127,8 @@
 
 <script>
 const fmt = n => n.toLocaleString('en-GB');
-const LABEL = { all: 'All sources', github: 'GitHub', tgh: 'TGH website', sourceforge: 'SourceForge',
-                chocolatey: 'Chocolatey', majorgeeks: 'MajorGeeks', softpedia: 'Softpedia' };
+const LABEL = { all: 'All sources', github: 'GitHub', sourceforge: 'SourceForge', tgh: 'TGH website',
+                chocolatey: 'Chocolatey' };
 const ORDER = ['Windows tools', 'Browser extensions', 'WordPress'];
 let DATA = null, PICK = 'all';
 try { const v = localStorage.getItem('dl-pick'); if (v && LABEL[v]) PICK = v; } catch (e) {}
@@ -177,7 +177,7 @@ function render() {
 
   const split = a => {
     if (PICK !== 'all') return '';
-    const parts = ['github', 'tgh', 'sourceforge', 'chocolatey', 'majorgeeks', 'softpedia']
+    const parts = ['github', 'sourceforge', 'tgh', 'chocolatey']
       .filter(k => a[k]).map(k => fmt(a[k]) + ' ' + LABEL[k]);
     return parts.length > 1 ? parts.join('  ·  ') : '';
   };

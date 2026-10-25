@@ -3,17 +3,14 @@
 Run by .github/workflows/collect.yml. Writes data/downloads.json, which is the only
 thing index.html reads.
 
-Five places count a download, and all five are asked:
+Places that count a download, in order of importance:
 
   GitHub releases   the primary source, and the only one for most apps
   SourceForge       the mirror, which has its own counter
+  Website           download-button clicks on techygeekshome.info
   Chocolatey        the package feed, which has its own counter
-  MajorGeeks        by far the largest external channel we have
-  Softpedia         one publisher page carries every product's total
 
-The first three are looked up by the repository name in lower case, which is how they
-are all named. The last two do not use our naming, so they are listed explicitly in
-DIRECTORY below. An app missing from that table is simply not on those sites yet.
+GitHub, SourceForge and Chocolatey are looked up by the repository name in lower case.
 
 Repositories are discovered rather than listed, so a new app appears here on its own
 once it has a release. The other two are probed by the repository name in lower case,
@@ -42,18 +39,7 @@ SOURCEFORGE = "https://sourceforge.net/projects/{slug}/files/stats/json"
 CHOCOLATEY = "https://community.chocolatey.org/api/v2/FindPackagesById()"
 PACKAGES = "https://community.chocolatey.org/api/v2/Packages()"
 CHOCO_PAGE = "https://community.chocolatey.org/packages/{pkg}"
-MAJORGEEKS = "https://www.majorgeeks.com/files/details/{slug}.html"
-SOFTPEDIA_PUBLISHER = "https://www.softpedia.com/publisher/Techy-Geeks-Home-95268.html"
 
-# Neither site uses our repository names, so the ones we are actually listed on are
-# named here. Anything absent is not on that site yet, which is a real answer.
-DIRECTORY = {
-    "Ultimate-Settings-Panel": {"majorgeeks": "ultimate_settings_panel",
-                                "softpedia": "Ultimate Settings Panel"},
-    "PDFGeek":                 {"majorgeeks": "pdfgeek",   "softpedia": "PDFGeek"},
-    "DiskGeek":                {"majorgeeks": "diskgeek",  "softpedia": "DiskGeek"},
-    "CleanGeek":               {"majorgeeks": "cleangeek", "softpedia": "CleanGeek"},
-}
 
 UA = "techygeekshome-download-stats"
 
@@ -74,7 +60,7 @@ TGH_SLUG = {
 
 CATEGORIES = ["Windows tools", "Browser extensions", "WordPress"]
 
-# MajorGeeks and Softpedia both refuse a bare urllib User-Agent, so the scrapers send a
+# Some sites refuse a bare urllib User-Agent, so those requests send a
 # browser one. The GitHub and SourceForge APIs keep the honest identifier above.
 BROWSER_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
               "(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36")
@@ -191,52 +177,6 @@ def chocolatey_downloads(package_id):
     return max(found) if found else 0
 
 
-def majorgeeks_downloads(slug):
-    """All-time downloads from the listing page, or 0 if we are not listed there."""
-    if not slug:
-        return 0
-    try:
-        html = fetch(MAJORGEEKS.format(slug=slug), "text/html",
-                     browser=True).decode("utf-8", "replace")
-    except urllib.error.HTTPError as e:
-        if e.code == 404:
-            return 0
-        raise
-    m = re.search(r"Downloads?\s*:?\s*([\d,]+)\s*times", html, re.I)
-    if not m:
-        raise ValueError("no download count on the MajorGeeks page")
-    return int(m.group(1).replace(",", ""))
-
-
-_softpedia_cache = {}
-
-
-def softpedia_table():
-    """
-    Every product's total, from the one publisher page.
-
-    Scraped once per run rather than per app: the publisher page lists all of them, so
-    thirty-odd separate fetches would be rude as well as slow.
-    """
-    if _softpedia_cache:
-        return _softpedia_cache
-    html = fetch(SOFTPEDIA_PUBLISHER, "text/html", browser=True).decode("utf-8", "replace")
-    text = re.sub(r"<[^>]+>", " ", html)
-    text = re.sub(r"\s+", " ", text)
-    for name, count in re.findall(r"([A-Za-z][\w .&-]{2,40}?)\s+[\d.]*\s*([\d,]+)\s+downloads", text, re.I):
-        _softpedia_cache[name.strip().lower()] = int(count.replace(",", ""))
-    if not _softpedia_cache:
-        raise ValueError("no products found on the Softpedia publisher page")
-    return _softpedia_cache
-
-
-def softpedia_downloads(product):
-    """All-time downloads for one product, or 0 if it is not listed."""
-    if not product:
-        return 0
-    return softpedia_table().get(product.strip().lower(), 0)
-
-
 _tgh_cache = {}
 
 
@@ -304,13 +244,10 @@ def main():
             continue
 
         counts = {"github": gh}
-        listed = DIRECTORY.get(name, {})
 
         for label, lookup, key in (
             ("sourceforge", sourceforge_downloads, slug),
             ("chocolatey",  chocolatey_downloads,  slug),
-            ("majorgeeks",  majorgeeks_downloads,  listed.get("majorgeeks")),
-            ("softpedia",   softpedia_downloads,   listed.get("softpedia")),
             ("tgh",         tgh_downloads,         name),
         ):
             try:
@@ -351,8 +288,6 @@ def main():
             "github": counts["github"],
             "sourceforge": counts["sourceforge"],
             "chocolatey": counts["chocolatey"],
-            "majorgeeks": counts["majorgeeks"],
-            "softpedia": counts["softpedia"],
             "tgh": counts["tgh"],
             "releases": len(published),
             "latest": published[0]["tag_name"],
@@ -371,8 +306,6 @@ def main():
             "github": sum(a["github"] for a in apps),
             "sourceforge": sum(a["sourceforge"] for a in apps),
             "chocolatey": sum(a["chocolatey"] for a in apps),
-            "majorgeeks": sum(a["majorgeeks"] for a in apps),
-            "softpedia": sum(a["softpedia"] for a in apps),
             "tgh": sum(a["tgh"] for a in apps),
         },
         "categories": CATEGORIES,
@@ -388,8 +321,7 @@ def main():
     s = payload["sources"]
     print(f"{payload['total']} downloads across {len(apps)} applications "
           f"(GitHub {s['github']}, SourceForge {s['sourceforge']}, "
-          f"Chocolatey {s['chocolatey']}, MajorGeeks {s['majorgeeks']}, "
-          f"Softpedia {s['softpedia']})")
+          f"Chocolatey {s['chocolatey']}, website {s['tgh']})")
 
 
 if __name__ == "__main__":
