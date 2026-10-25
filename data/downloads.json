@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-25T22:14:21Z",
+  "generated": "2026-10-25T22:15:46Z",
   "total": 25507,
   "sources": {
     "github": 14674,
@@ -1044,7 +1044,7 @@
     },
     {
       "name": "Backburner-Post-Archiver",
-      "category": "Windows tools",
+      "category": "WordPress",
       "url": "https://github.com/techygeekshome/Backburner-Post-Archiver",
       "description": "Automatically move old content out of active circulation after a configurable age, without ever deleting anything or breaking a URL.",
       "total": 3,
