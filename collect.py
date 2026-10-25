@@ -57,6 +57,23 @@ DIRECTORY = {
 
 UA = "techygeekshome-download-stats"
 
+# The website keeps its own counter of download-button clicks, keyed by page slug.
+TGH_COUNTS = "https://techygeekshome.info/wp-json/tgh/v1/download-counts"
+
+# Where a repository's page on the website does not use the lower-case repo name as
+# its counter key, the key is named here.
+TGH_SLUG = {
+    "BoardSaver": "board-saver", "GridSaver": "grid-saver", "ClipSaver": "clip-saver",
+    "RedditSaver": "reddit-saver", "BlueskySaver": "bluesky-saver", "PageSaver": "page-saver",
+    "ImageFormatSaver": "image-format-saver", "ScreenshotSaver": "screenshot-saver",
+    "MarkdownSaver": "markdown-saver", "PDFGeekExtension": "pdfgeek",
+    "CountryFilterForX": "country-filter-for-x",
+    "Ultimate-Settings-Panel": "ultimate-settings-panel",
+    "PDFGeek": None,      # the Windows app page has no counter; "pdfgeek" is the extension's
+}
+
+CATEGORIES = ["Windows tools", "Browser extensions", "WordPress"]
+
 # MajorGeeks and Softpedia both refuse a bare urllib User-Agent, so the scrapers send a
 # browser one. The GitHub and SourceForge APIs keep the honest identifier above.
 BROWSER_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -220,6 +237,41 @@ def softpedia_downloads(product):
     return softpedia_table().get(product.strip().lower(), 0)
 
 
+_tgh_cache = {}
+
+
+def tgh_table():
+    """Every download-button click the website has counted, fetched once per run."""
+    if not _tgh_cache:
+        _tgh_cache.update(json.loads(fetch(TGH_COUNTS, "application/json", browser=True)))
+        if not _tgh_cache:
+            raise ValueError("the website returned no counts")
+    return _tgh_cache
+
+
+def tgh_downloads(name):
+    key = TGH_SLUG.get(name, name.lower())
+    if not key:
+        return 0
+    return int(tgh_table().get(key, 0))
+
+
+def category(name):
+    """Browser extension if it has a manifest.json, WordPress if it has a WP readme or
+    theme stylesheet, otherwise a Windows tool."""
+    def has(path):
+        try:
+            get(f"/repos/{OWNER}/{name}/contents/{path}")
+            return True
+        except urllib.error.HTTPError:
+            return False
+    if has("manifest.json"):
+        return "Browser extensions"
+    if has("readme.txt") or has("style.css"):
+        return "WordPress"
+    return "Windows tools"
+
+
 def previous():
     """Last run's figures, keyed by app name, so a source outage cannot lose a number."""
     try:
@@ -259,6 +311,7 @@ def main():
             ("chocolatey",  chocolatey_downloads,  slug),
             ("majorgeeks",  majorgeeks_downloads,  listed.get("majorgeeks")),
             ("softpedia",   softpedia_downloads,   listed.get("softpedia")),
+            ("tgh",         tgh_downloads,         name),
         ):
             try:
                 got = lookup(key)
@@ -282,16 +335,25 @@ def main():
             else:
                 counts[label] = max(got, had)
 
+        try:
+            cat = category(name)
+        except Exception:                               # noqa: BLE001
+            cat = was.get("category", "Windows tools")
+
         apps.append({
             "name": name,
+            "category": cat,
             "url": repo["html_url"],
             "description": repo.get("description") or "",
-            "total": sum(counts.values()),
+            # Website clicks lead to a GitHub download, so they are already inside the
+            # GitHub figure. They are reported, but not added to the total twice.
+            "total": sum(v for k, v in counts.items() if k != "tgh"),
             "github": counts["github"],
             "sourceforge": counts["sourceforge"],
             "chocolatey": counts["chocolatey"],
             "majorgeeks": counts["majorgeeks"],
             "softpedia": counts["softpedia"],
+            "tgh": counts["tgh"],
             "releases": len(published),
             "latest": published[0]["tag_name"],
             "assets": sorted(
@@ -311,7 +373,9 @@ def main():
             "chocolatey": sum(a["chocolatey"] for a in apps),
             "majorgeeks": sum(a["majorgeeks"] for a in apps),
             "softpedia": sum(a["softpedia"] for a in apps),
+            "tgh": sum(a["tgh"] for a in apps),
         },
+        "categories": CATEGORIES,
         "unavailable": sorted(unavailable),
         "apps": apps,
     }

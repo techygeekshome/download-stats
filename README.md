@@ -1,6 +1,6 @@
 # download-stats
 
-Total download counts for every TechyGeeksHome application, collected once a day and published
+Total download counts for every TechyGeeksHome product, split into Windows tools, browser extensions and WordPress, collected once a day and published
 as a page.
 
 - **Dashboard:** https://techygeekshome.github.io/download-stats/

@@ -69,6 +69,24 @@
   .num{font-variant-numeric:tabular-nums; font-size:19px; font-weight:600; white-space:nowrap}
   .bar{height:5px; border-radius:3px; background:linear-gradient(90deg,var(--bar-a),var(--bar-b)); margin-top:8px; min-width:2px}
   .barcell{width:34%; min-width:110px}
+  th.num{font-size:11.5px; font-weight:600}
+
+  .pills{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 34px}
+  .pill{
+    font:inherit; font-size:13px; cursor:pointer;
+    background:var(--surface); color:var(--txt-2);
+    border:1px solid var(--line); border-radius:999px; padding:7px 14px;
+    display:flex; align-items:baseline; gap:7px;
+  }
+  .pill b{color:var(--txt); font-weight:600; font-variant-numeric:tabular-nums}
+  .pill:hover{border-color:var(--accent)}
+  .pill.on{background:var(--accent); border-color:var(--accent); color:#0A0D16}
+  .pill.on b{color:#0A0D16}
+  .section{margin:0 0 44px}
+  .section h2{display:flex; justify-content:space-between; align-items:baseline;
+    margin:0 0 6px; font-size:15px; font-weight:600; letter-spacing:.02em}
+  .section h2 span{color:var(--txt-3); font-weight:400; font-size:14px; font-variant-numeric:tabular-nums}
+  .note{color:var(--txt-3); font-size:13px; margin:-22px 0 30px}
 
   footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); color:var(--txt-3); font-size:13px}
   footer a{color:var(--txt-3)}
@@ -89,16 +107,19 @@
   </header>
 
   <div class="headline" id="total">&middot;&middot;&middot;</div>
-  <p class="headline-sub" id="totalSub">All applications, all versions, every place they are published.</p>
-  <ul class="sources" id="sources"></ul>
+  <p class="headline-sub" id="totalSub">All products, all versions, every place they are published.</p>
+  <div class="pills" id="pills"></div>
+  <p class="note" id="note" hidden></p>
   <p class="warn" id="warn" hidden></p>
 
   <div id="body"><p class="msg">Loading&hellip;</p></div>
 
   <footer>
-    Counted once a day from the GitHub releases API, the SourceForge statistics feed and the
-    Chocolatey package feed. Checksum files are excluded. If a source cannot be reached, its last
-    known figure is carried forward and said so above.
+    Counted once a day from GitHub releases, the TechyGeeksHome website's download buttons,
+    SourceForge, Chocolatey, MajorGeeks and Softpedia. Checksum files are excluded. Website
+    clicks go on to a GitHub download, so they are shown on their own but not added to the
+    overall total twice. If a source cannot be reached, its last known figure is carried
+    forward and said so above.
     <a href="data/downloads.json">Raw data</a>.
   </footer>
 
@@ -106,86 +127,97 @@
 
 <script>
 const fmt = n => n.toLocaleString('en-GB');
+const LABEL = { all: 'All sources', github: 'GitHub', tgh: 'TGH website', sourceforge: 'SourceForge',
+                chocolatey: 'Chocolatey', majorgeeks: 'MajorGeeks', softpedia: 'Softpedia' };
+const ORDER = ['Windows tools', 'Browser extensions', 'WordPress'];
+let DATA = null, PICK = 'all';
+try { const v = localStorage.getItem('dl-pick'); if (v && LABEL[v]) PICK = v; } catch (e) {}
 
-function render(d) {
-  const total = document.getElementById('total');
-  const sub = document.getElementById('totalSub');
-  const stamp = document.getElementById('stamp');
+const val = a => PICK === 'all' ? a.total : (a[PICK] || 0);
+
+function render() {
+  const d = DATA;
   const body = document.getElementById('body');
-
   if (!d.generated || !d.apps.length) {
     body.innerHTML = '<p class="msg">No data collected yet. Run the <strong>collect</strong> workflow from the Actions tab.</p>';
     return;
   }
+  const src = d.sources || {};
+  const sums = { all: d.total };
+  Object.keys(LABEL).forEach(k => { if (k !== 'all') sums[k] = src[k] || 0; });
 
-  total.textContent = fmt(d.total);
-  sub.textContent = 'Across ' + d.apps.length +
-    ' application' + (d.apps.length === 1 ? '' : 's') + ' and ' +
-    fmt(d.apps.reduce((a, x) => a + x.releases, 0)) + ' GitHub releases.';
+  document.getElementById('pills').innerHTML = Object.keys(LABEL).map(k =>
+    `<button class="pill${k === PICK ? ' on' : ''}" data-k="${k}">${LABEL[k]} <b>${fmt(sums[k] || 0)}</b></button>`).join('');
+  document.querySelectorAll('.pill').forEach(b => b.onclick = () => {
+    PICK = b.dataset.k;
+    try { localStorage.setItem('dl-pick', PICK); } catch (e) {}
+    render();
+  });
 
-  const src = d.sources || { github: d.total, sourceforge: 0, chocolatey: 0, majorgeeks: 0, softpedia: 0 };
-  const label = { github: 'GitHub releases', sourceforge: 'SourceForge', chocolatey: 'Chocolatey', majorgeeks: 'MajorGeeks', softpedia: 'Softpedia' };
-  document.getElementById('sources').innerHTML = Object.keys(label)
-    .map(k => `<li><b>${fmt(src[k] || 0)}</b> ${label[k]}</li>`).join('');
+  document.getElementById('total').textContent = fmt(sums[PICK] || 0);
+  const shown = d.apps.filter(a => val(a) > 0);
+  document.getElementById('totalSub').textContent = PICK === 'all'
+    ? 'Across ' + d.apps.length + ' products and ' + fmt(d.apps.reduce((a, x) => a + x.releases, 0)) + ' GitHub releases.'
+    : LABEL[PICK] + ' downloads, across ' + shown.length + ' product' + (shown.length === 1 ? '' : 's') + '.';
+
+  const note = document.getElementById('note');
+  note.hidden = PICK !== 'tgh';
+  note.textContent = 'Clicks on the download buttons on techygeekshome.info. Only pages with a counter are included.';
 
   const out = d.unavailable || [];
   const warn = document.getElementById('warn');
-  if (out.length) {
-    warn.hidden = false;
-    warn.textContent = 'Could not reach ' + out.map(k => label[k]).join(' or ') +
-      ' on this run. The figure shown for it is the last one that was collected.';
-  } else {
-    warn.hidden = true;
-  }
+  warn.hidden = !out.length;
+  if (out.length) warn.textContent = 'Could not reach ' + out.map(k => LABEL[k] || k).join(' or ') +
+    ' on this run. The figure shown for it is the last one that was collected.';
 
   const when = new Date(d.generated);
-  stamp.textContent = 'updated ' + when.toLocaleDateString('en-GB',
+  document.getElementById('stamp').textContent = 'updated ' + when.toLocaleDateString('en-GB',
     { day: 'numeric', month: 'short', year: 'numeric' }) + ', ' +
     when.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
 
-  const top = d.apps[0].total || 1;
   const split = a => {
-    const parts = [];
-    if (a.github) parts.push(fmt(a.github) + ' GitHub');
-    if (a.sourceforge) parts.push(fmt(a.sourceforge) + ' SourceForge');
-    if (a.chocolatey) parts.push(fmt(a.chocolatey) + ' Chocolatey');
-    if (a.majorgeeks) parts.push(fmt(a.majorgeeks) + ' MajorGeeks');
-    if (a.softpedia) parts.push(fmt(a.softpedia) + ' Softpedia');
+    if (PICK !== 'all') return '';
+    const parts = ['github', 'tgh', 'sourceforge', 'chocolatey', 'majorgeeks', 'softpedia']
+      .filter(k => a[k]).map(k => fmt(a[k]) + ' ' + LABEL[k]);
     return parts.length > 1 ? parts.join('  ·  ') : '';
   };
 
-  const rows = d.apps.map(a => `
-    <tr>
-      <td class="app">
-        <a href="${a.url}">${a.name}</a>
-        ${a.description ? `<span class="desc">${a.description}</span>` : ''}
-        ${split(a) ? `<span class="split">${split(a)}</span>` : ''}
-      </td>
-      <td class="tag">${a.latest ? a.latest : ''}</td>
-      <td class="barcell"><div class="bar" style="width:${Math.max(2, (a.total / top) * 100)}%"></div></td>
-      <td class="num">${fmt(a.total)}</td>
-    </tr>`).join('');
+  const cats = (d.categories || ORDER).concat(
+    [...new Set(d.apps.map(a => a.category || 'Windows tools'))].filter(c => !(d.categories || ORDER).includes(c)));
 
-  body.innerHTML = `
-    <table>
-      <thead>
-        <tr>
-          <th>Application</th>
-          <th>Latest</th>
-          <th class="barcell"></th>
-          <th class="num">Downloads</th>
-        </tr>
-      </thead>
-      <tbody>${rows}</tbody>
-    </table>`;
+  const html = cats.map(cat => {
+    const list = d.apps.filter(a => (a.category || 'Windows tools') === cat && (PICK === 'all' || val(a) > 0))
+      .sort((x, y) => val(y) - val(x));
+    if (!list.length) return '';
+    const sub = list.reduce((n, a) => n + val(a), 0);
+    const top = val(list[0]) || 1;
+    const rows = list.map(a => `
+      <tr>
+        <td class="app">
+          <a href="${a.url}">${a.name}</a>
+          ${a.description ? `<span class="desc">${a.description}</span>` : ''}
+          ${split(a) ? `<span class="split">${split(a)}</span>` : ''}
+        </td>
+        <td class="tag">${a.latest || ''}</td>
+        <td class="barcell"><div class="bar" style="width:${Math.max(2, (val(a) / top) * 100)}%"></div></td>
+        <td class="num">${fmt(val(a))}</td>
+      </tr>`).join('');
+    return `<div class="section">
+      <h2>${cat} <span>${fmt(sub)}</span></h2>
+      <table>
+        <thead><tr><th>${list.length} product${list.length === 1 ? '' : 's'}</th><th>Latest</th><th class="barcell"></th><th class="num">Downloads</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table></div>`;
+  }).join('');
+
+  body.innerHTML = html || '<p class="msg">Nothing counted from ' + LABEL[PICK] + ' yet.</p>';
 }
 
 fetch('data/downloads.json', { cache: 'no-store' })
   .then(r => r.json())
-  .then(render)
+  .then(d => { DATA = d; render(); })
   .catch(() => {
-    document.getElementById('body').innerHTML =
-      '<p class="msg">Could not read the data file.</p>';
+    document.getElementById('body').innerHTML = '<p class="msg">Could not read the data file.</p>';
   });
 </script>
 </body>
